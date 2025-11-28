@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>YT Tool — Video Detail</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="left-back"></div>
+    <div class="page-title">🇮🇳 INDIAN Tool 🇮🇳</div>
+  
+    
+</header>
+
+
+
+  <!-- SEARCH / MAIN -->
+  <main class="main">
+    <!-- Search row (same phela UI) -->
+    <section class="search-wrap">
+      <div class="search-row">
+        <input id="inputUrl" type="text" placeholder="Enter youtube video url">
+        <button class="go" id="goBtn">Go</button>
+      </div>
+    </section>
+
+    <!-- Popular tools (kept same) -->
+    <div class="popular">
+  <div class="tool-card" id="toolTags"><div class="tool-icon">🏷️</div><div>Video Tags Extractor</div></div>
+  <div class="tool-card" id="toolKeyword"><div class="tool-icon">🔍</div><div>Keyword Suggestion</div></div>
+  <div class="tool-card" id="toolHashtag"><div class="tool-icon">#️⃣</div><div>AI Hashtag Generator</div></div>
+</div>
+
+    <!-- Featured -->
+    <div class="featured">Featured / Banner Area (future tools or ads)</div>
+<section class="section" id="aiBox" style="display:none;">
+  <h3 class="section-title" id="aiTitle">AI Tool</h3>
+
+  <div class="search-row">
+    <input id="aiInput" type="text" placeholder="Enter your text">
+    <button class="go" id="aiGenerateBtn">Generate</button>
+  </div>
+
+  <div id="aiOutput"
+       style="margin-top:14px;padding:14px;background:#eef6f3;border-radius:12px;font-weight:600;display:none;">
+  </div>
+</section>
+    <!-- All Tools Grid (kept) -->
+    <div class="grid" id="toolsGrid">
+   
+   
+
+    <!-- Only this line updated -->
+    <div class="grid-card" data-tool="earning"><div class="icon">📟</div><div>Earning Calculator</div></div>
+      <div class="grid-card" data-tool="competitor"><div class="icon">👥</div><div>Find Competitor</div></div>
+    <div class="grid-card" data-tool="Trading"><div class="icon">📊</div><div>Trading videos</div></div>
+     <div class="grid-card" data-tool="video"><div class="icon">💰</div><div>video earning</div></div>
+    <div class="grid-card" data-tool="Tittle"><div class="icon">🔍</div><div> ai tittle generator</div></div>
+       <div class="grid-card" data-tool="hastag"><div class="icon">#️⃣</div><div>ai hastag generator</div></div>
+       <div class="grid-card" data-tool="channel name"><div class="icon">🎯</div><div>ai channel name generator</div></div>
+       <div class="grid-card" data-tool="discraption"><div class="icon">✏️</div><div>ai discraption generator</div></div>
+       <div class="grid-card" data-tool="tags"><div class="icon">🏷️</div><div>ai tags generator</div></div>
+        <div class="grid-card" data-tool="time"><div class="icon">⏰</div><div>Best video Posting Time</div></div>
+</div>
+      <!-- AI Tools & Trending Layout -->
+<div id="aiLayout" style="display:none; margin-top:20px;">
+  <div class="search-wrap">
+    <div class="search-row">
+      <input type="text" id="aiInput" placeholder="Enter Title here...">
+      <button class="go" id="aiGo">Generate</button>
+    </div>
+  </div>
+  <div class="result" style="margin-top:12px; display:none;" id="aiResult">
+    <div style="font-weight:600; margin-bottom:8px;">Output:</div>
+    <div id="aiOutput" style="background:#f6f9f8; padding:12px; border-radius:10px;"></div>
+    <button class="copyBtn" id="copyAiOutput">Copy</button>
+  </div>
+</div>
+
+<!-- Earning Calculator Layout -->
+<div id="earningLayout" style="display:none; margin-top:20px;">
+  <div style="margin-bottom:12px; font-weight:600;">Earning Calculator</div>
+  <div class="search-wrap">
+    <input type="number" id="viewsInput" placeholder="Enter total views" min="0">
+    <button class="go" id="calcEarningBtn">Calculate</button>
+  </div>
+  <div class="result" style="margin-top:12px; display:none;" id="earningResult">
+    <div id="earningOutput" style="background:#f6f9f8; padding:12px; border-radius:10px;"></div>
+    <button class="copyBtn" id="copyEarningBtn">Copy</button>
+  </div>
+</div>
+
+<!-- Trending Videos Layout -->
+<div id="trendingLayout" style="display:none; margin-top:20px;">
+  <div style="margin-bottom:12px; font-weight:600;">Trending Trading Videos</div>
+  <div id="trendingVideos" style="display:flex; flex-wrap:wrap; gap:12px;"></div>
+</div>
+
+    <!-- VIDEO DETAIL (exact screenshot-like layout) -->
+    <section id="videoDetailSection">
+      <div class="video-detail" id="videoDetail" style="display:none">
+        <div class="video-row">
+          <div class="thumb" id="thumbPreview"></div>
+          <div class="meta">
+            <h3 id="vTitle">Video Title</h3>
+            <div id="vPublish" class="publish-date"></div>
+
+            <div class="stats">
+              <div class="stat" id="vViews">👁️ 0</div>
+              <div class="stat" id="vLikes">👍 0</div>
+            </div>
+
+            <div class="desc-box">
+              <div class="desc-label">Description:</div>
+              <div id="vDesc" class="desc-text">-</div>
+              <a id="readMore" class="read-more" href="#" style="display:none">Read More</a>
+            </div>
+
+            <div class="comments-box" id="commentsBox">
+              <div class="comments-count">💬 <span id="vComments">0</span> Comments</div>
+            </div>
+
+            <div class="quick-action" id="quickActions">
+              <button class="btn" id="copyTitle">Copy Title</button>
+              <button class="btn" id="copyDesc">Copy Description</button>
+              <button class="btn" id="downloadThumb">Download Thumbnail</button>
+              <button class="btn" id="copyTags">Copy Hashtag</button>
+              <button class="btn" id="copyKeywords">Copy Keyword</button>
+              <button class="btn" id="viewProfile">View Profile</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="tags-box" id="tagsBox" style="display:none">
+          <div style="font-weight:700">Extracted Tags</div>
+          <div id="tagsList" style="margin-top:8px"></div>
+          <div style="margin-top:10px">
+            <button class="btn" id="copyAllTags">Copy All Tags</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Inline message area (for errors / not found) - will not use browser alert -->
+      <div id="messageBox" class="message-box" style="display:none"></div>
+    </section>
+
+    
+        <!-- Future Tools (kept) -->
+    <section class="section">
+      <h3 class="section-title">Future unlock Tools</h3>
+      <div class="future-row">
+        <div class="future-btn">🔤 AI video check</div>
+        <div class="future-btn">🎯 Shorts Keyword Finder</div>
+        <div class="future-btn">🖼️ Thumbnail Analyzer</div>
+        <div class="future-btn">📈 Growth Prediction</div>
+      </div>
+    </section>
+
+  </main>
+
+  
+<script src="script.js"></script>
+</body>
+</html>
